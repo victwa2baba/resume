@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+
+@theme {
+  --color-magenta: rgb(57, 180, 0);
+  --color-primary: #3650e3;
+}
+
+@layer components {
+  .btn {
+    @apply flex p-3 border text-[16px]
+     bg-white border-zinc-900
+      rounded-2xl hover:bg-black
+     hover:text-white cursor-pointer
+     transition-all 
+      }
+    .btn-submit {
+      @apply bg-amber-500 text-white
+    }
+  h3 {
+    @apply font-bold text-2xl
+  }
+  .form-control {
+        @apply my-2 dark:text-white 
+      }
+  .form-control input {
+    @apply my-2  border border-amber-300 w-full p-1 focus:outline-1 active:border-0
+     focus:border-amber-600 indent-2 invalid:border-red-600 
+  }
+  .form-control .datepicker svg {
+    @apply dark:bg-white 
+  }
+  .form-control textarea {
+    @apply border-1 border-amber-300 flex  outline-1 focus:border-amber-600 indent-2 w-full
+  }
+  .form-check {
+    @apply flex flex-row gap-2 dark:text-white
+  }
+  .form-check input {
+    @apply w-5 border-4 
+  }
+ svg {
+  width: 25px;
+ }
+}
