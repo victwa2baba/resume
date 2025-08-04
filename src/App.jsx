@@ -4,7 +4,9 @@ import { FormInputs } from './components/form'
 
 
 function App() {
-  const [theme, setTheme] = useState(null);
+  const [theme, setTheme] = useState(()=> {
+     return localStorage.getItem('theme') || 'light';
+  });
   
 
   useEffect(()=> {
@@ -13,20 +15,16 @@ function App() {
   },[])
 
   useEffect(()=> {
-    if (theme) {
       const html = document.documentElement;
-    html.classList.remove('light', 'dark');
-    html.classList.add(theme)
-    localStorage.setItem('theme', theme)
-    }
-    
+      html.classList.remove('light', 'dark');
+      html.classList.add(theme)
+      localStorage.setItem('theme', theme)
   },[theme])
 
   function handleTheme() {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   }
  
-  if (!theme) return null;
   
   return (
     <div className="p-4 dark:bg-black bg-white">

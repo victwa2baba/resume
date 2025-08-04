@@ -50,8 +50,7 @@ export function FormInputs() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(form));
   }
 
- 
- function handleTheme() {}
+
 
   function CvDisplay() {
     return (
